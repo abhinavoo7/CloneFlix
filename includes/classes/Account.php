@@ -26,6 +26,20 @@
 
         public function login($uname, $pw){
             $pw = hash("sha512", $pw);
+
+            $query = $this->con->prepare("Select * from users where username=:uname AND password=:pw");
+            $query->bindValue(":uname", $uname);
+            $query->bindValue(":pw", $pw);
+
+            $query->execute();
+
+            if($query->rowCount() == 1){
+                return true;
+            }
+
+            array_push($this->errorArray, Constants::$loginFailed);
+
+            return false;
         }
 
         private function insertUserDetails($fname, $lname, $uname, $em, $pw){            

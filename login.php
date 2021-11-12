@@ -1,18 +1,27 @@
 <?php
 
-if (isset($_POST["submitButton"])) {
-    
-    $username = FormSanitizer::class::sanitizeFormUsername($_POST["username"]);
-    $password = FormSanitizer::class::sanitizeFormPassword($_POST["password"]);
-    // echo $firstName." ".$lastName." ".$username." ".$email." ".$email2." ".$password." ".$password2;
+    require("includes\classes\FormSanitizer.php");
+    require("includes\config.php");
+    require("includes\classes\Account.php");
+    require("includes\classes\Constants.php");
 
-    $success = $account->register($firstName, $lastName, $username, $email, $email2, $password, $password2);
+    $account = new Account($con);
 
-    if ($success) {
-        // Store session
-        header("Location: index.php");
+    if (isset($_POST["submitButton"])) {
+
+        $username = FormSanitizer::class::sanitizeFormUsername($_POST["username"]);
+        $password = FormSanitizer::class::sanitizeFormPassword($_POST["password"]);
+        // echo $firstName." ".$lastName." ".$username." ".$email." ".$email2." ".$password." ".$password2;
+
+        $success = $account->login($username,$password);
+
+        if ($success) {
+            // Store session
+            $_SESSION["userLoggedIn"] = $username;
+
+            header("Location: index.php");
+        }
     }
-}
 
 ?>
 <!DOCTYPE html>
@@ -43,6 +52,8 @@ if (isset($_POST["submitButton"])) {
             </div>
 
             <form method="POST">
+
+                <?php echo $account->getError(Constants::$loginFailed); ?>
 
                 <input type="text" name="username" placeholder="Username" required>
 
