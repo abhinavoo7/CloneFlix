@@ -7,6 +7,7 @@ function volumeToggle(button) {
 }
 
 function previewEnded() {
-    $(".previewVideo").toggle();
-    $(".previewImage").toggle();
+    var x = document.getElementsByClassName("previewImage");
+    x[0].removeAttribute("hidden");
+    $('.previewVideo').toggle();
 }

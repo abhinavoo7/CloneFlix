@@ -25,7 +25,7 @@
             return "<div class='previewContainer'>
                         <img src='$thumbnail' class='previewImage' hidden>
 
-                        <video autoplay muted class='previewVideo' onended='previewEnded()'>
+                        <video poster='thumbnail' autoplay muted class='previewVideo' onended='previewEnded()'>
                             <source src='$preview' type='video/mp4'>
                         </video>
 
