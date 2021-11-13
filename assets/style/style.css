@@ -10,6 +10,14 @@
         color: #333;
         box-sizing: border-box;
     }
+    /* Div Wrapper header.php*/
+    
+    .wrapper {
+        /* min-width: 65.625rem; */
+        min-width: 55rem;
+        min-height: 100%;
+        background-color: #000;
+    }
     
     .signInContainer {
         background-color: #efefee;
