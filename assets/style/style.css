@@ -92,3 +92,53 @@
         font-size: 1rem;
         font-weight: 400;
     }
+    /*  */
+    /* preview video and images */
+    
+    .previewImage,
+    .previewVideo {
+        width: 100%;
+    }
+    /*  */
+    /* Preview container */
+    
+    .previewContainer {
+        position: relative;
+        display: flex;
+    }
+    
+    .previewOverlay {
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.05);
+        position: absolute;
+        color: white;
+    }
+    
+    .previewOverlay .mainDetails h3 {
+        color: white;
+        font-size: 2.5rem;
+        margin: 1.25rem 0.5rem;
+        font-weight: 600;
+    }
+    
+    .mainDetails {
+        position: relative;
+        top: 35%;
+        margin-left: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        color: white;
+    }
+    
+    .mainDetails button {
+        background-color: rgba(51, 51, 51, 0.3);
+        color: white;
+        border: none;
+        padding: 0.25rem 2rem;
+        font-size: 1.5rem;
+        border-radius: 4px;
+        margin-right: 1rem;
+        margin-bottom: 1.5rem;
+        margin-left: 0.5rem;
+    }

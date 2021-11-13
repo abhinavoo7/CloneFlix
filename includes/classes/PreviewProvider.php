@@ -20,12 +20,26 @@
             $thumbnail = $entity->getThumbnail();
             $preview = $entity->getPreview();
             
+                                // add subtitle  
+            
             return "<div class='previewContainer'>
                         <img src='$thumbnail' class='previewImage' hidden>
 
                         <video autoplay muted class='previewVideo'>
                             <source src='$preview' type='video/mp4'>
                         </video>
+
+                        <div class='previewOverlay'>
+                            
+                            <div class='mainDetails'>
+                                <h3 style='color:white;'>$name</h3>   
+                                <div class='buttons'>
+                                    <button style='color:white;'>Play</button>
+                                    <button style='color:white;'>Volume</button>
+                                </div>
+                            </div>
+
+                        </div>
 
                     </div>";
         }
