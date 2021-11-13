@@ -31,8 +31,15 @@ if (!isset($userLoggedIn)) {
     <!-- CSS stylesheet -->
     <link rel="stylesheet" href="assets\style\style.css">
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/6fd5bc21ba.js" crossorigin="anonymous"></script>
+
+    <!-- JS -->
+    <script src="assets\js\script.js"></script>
 </head>
 
 <body>

@@ -34,8 +34,12 @@
                             <div class='mainDetails'>
                                 <h3 style='color:white;'>$name</h3>   
                                 <div class='buttons'>
-                                    <button style='color:white;'>Play</button>
-                                    <button style='color:white;'>Volume</button>
+                                    <button class='btn btn-outline-light btn-sm'>
+                                        <i class='fas fa-play'></i> Play
+                                    </button>
+                                    <button onClick='volumeToggle(this)' class='btn btn-outline-light btn-sm'>
+                                        <i class='fas fa-volume-mute px-3'></i>
+                                    </button>
                                 </div>
                             </div>
 

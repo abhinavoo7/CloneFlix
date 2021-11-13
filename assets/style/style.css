@@ -110,7 +110,7 @@
     .previewOverlay {
         height: 100%;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.05);
+        background-color: rgba(0, 0, 0, 0.25);
         position: absolute;
         color: white;
     }
@@ -132,13 +132,18 @@
     }
     
     .mainDetails button {
-        background-color: rgba(51, 51, 51, 0.3);
+        background-color: rgba(51, 51, 51, 0.025);
         color: white;
         border: none;
-        padding: 0.25rem 2rem;
-        font-size: 1.5rem;
+        font-weight: 400;
+        padding: 0.5rem 2.5rem;
+        font-size: 1.35rem;
         border-radius: 4px;
-        margin-right: 1rem;
+        margin-right: 0.15rem;
         margin-bottom: 1.5rem;
-        margin-left: 0.5rem;
+        margin-left: 0.25rem;
+    }
+    
+    button i {
+        color: inherit;
     }
