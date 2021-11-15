@@ -3,6 +3,7 @@
 require("includes\config.php");
 require("includes\classes\PreviewProvider.php");
 require("includes\classes\Entity.php");
+require ("includes\classes\CategoryContainers.php");
 
 $userLoggedIn = $_SESSION["userLoggedIn"];
 
