@@ -50,13 +50,16 @@
 
         private function getRandomEntity(){
 
-            $query = $this->con->prepare("Select * from entities order by RAND() Limit 1");
-            $query->execute();
+            // $query = $this->con->prepare("Select * from entities order by RAND() Limit 1");
+            // $query->execute();
 
-            // Get the data and store it into an associativa array
-            $row = $query->fetch(PDO::FETCH_ASSOC); 
-            
-            return new Entity($this->con, $row);
+            // // Get the data and store it into an associativa array
+            // $row = $query->fetch(PDO::FETCH_ASSOC); 
+
+            // return new Entity($this->con, $row);
+
+            $entity = EntityProvider::getEntities($this->con, null, 1);
+            return $entity[0];
         }
 
     }
