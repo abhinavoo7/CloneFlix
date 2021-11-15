@@ -40,12 +40,21 @@ class CategoryContainers {
         }
 
         $entitiesHtml = "";
+        $previewProvider = new PreviewProvider($this->con, $this->username);
 
         foreach($entities as $entity) {
-            $entitiesHtml .= $entity->getName();
+            $entitiesHtml .= $previewProvider->createEntityPreviewSquare($entity);
         }
 
-        return $entitiesHtml . "<br>";
+        return "<div class='category'>
+                    <a href='category.php'?id='$categoryId'>
+                        <h3>$title</h3>
+                    </a>
+
+                    <div class='entities scrollbars_none'>
+                        $entitiesHtml   
+                    </div>
+                </div>";
     }
 
-}
+} 

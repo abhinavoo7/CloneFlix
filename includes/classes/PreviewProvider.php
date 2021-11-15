@@ -37,7 +37,7 @@
                                     <button class='btn btn-outline-light btn-sm'>
                                         <i class='fas fa-play'></i> Play
                                     </button>
-                                    <button onClick='volumeToggle(this)' class='btn btn-outline-light btn-sm'>
+                                    <button id='hideButton' onClick='volumeToggle(this)' class='btn btn-outline-light btn-sm'>
                                         <i class='fas fa-volume-mute px-3'></i>
                                     </button>
                                 </div>
@@ -46,6 +46,18 @@
                         </div>
 
                     </div>";
+        }
+
+        public function createEntityPreviewSquare($entity){
+            $id = $entity->getId();
+            $name = $entity->getName();
+            $thumbnail = $entity->getThumbnail();
+            // $preview = $entity->getPreview(); 
+            return "<a href='entity.php'?id='$id'>
+                    <div class='previewContainer small'>
+                        <img src='$thumbnail' title='$name'>
+                    </div>
+                </a>";
         }
 
         private function getRandomEntity(){

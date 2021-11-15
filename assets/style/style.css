@@ -10,6 +10,20 @@
         color: #333;
         box-sizing: border-box;
     }
+    
+    h3 {
+        color: #e5e5e5;
+        font-size: 1.35rem;
+        font-weight: 600;
+    }
+    
+    .category a {
+        text-decoration: none;
+    }
+    
+    a h3:hover {
+        color: #fff;
+    }
     /* Div Wrapper header.php*/
     
     .wrapper {
@@ -115,6 +129,20 @@
         display: flex;
     }
     
+    .previewContainer.small {
+        width: 14.4rem;
+        height: 8.125rem;
+        margin: 0.15rem 0.25rem;
+        display: inline-flex;
+    }
+    
+    .previewContainer.small img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+    
     .previewOverlay {
         height: 100%;
         width: 100%;
@@ -154,4 +182,22 @@
     
     button i {
         color: inherit;
+    }
+    
+    .category {
+        margin-left: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        padding: 0.7rem 0;
+    }
+    
+    .entities {
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+    /* Scrollbars */
+    
+    .scrollbars_none::-webkit-scrollbar {
+        display: none;
     }

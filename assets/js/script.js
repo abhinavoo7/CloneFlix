@@ -9,5 +9,6 @@ function volumeToggle(button) {
 function previewEnded() {
     var x = document.getElementsByClassName("previewImage");
     x[0].removeAttribute("hidden");
+    document.getElementById("hideButton").hidden = true;
     $('.previewVideo').toggle();
 }
