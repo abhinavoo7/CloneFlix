@@ -185,7 +185,6 @@
     }
     
     .category {
-        margin-left: 0.75rem;
         display: flex;
         flex-direction: column;
         padding: 0.7rem 0;
@@ -200,4 +199,8 @@
     
     .scrollbars_none::-webkit-scrollbar {
         display: none;
+    }
+    
+    .previewCategories {
+        padding: 0 2.5rem;
     }

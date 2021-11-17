@@ -52,8 +52,8 @@
             $id = $entity->getId();
             $name = $entity->getName();
             $thumbnail = $entity->getThumbnail();
-            // $preview = $entity->getPreview(); 
-            return "<a href='entity.php'?id='$id'>
+        // $preview = $entity->getPreview(); 
+        return "<a href='entity.php?id=$id'>
                     <div class='previewContainer small'>
                         <img src='$thumbnail' title='$name'>
                     </div>
