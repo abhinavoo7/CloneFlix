@@ -2,7 +2,7 @@
     require ("includes/header.php");
 
     if (!isset($_GET["id"])) {
-        exit("No ID passed into page");
+        ErrorMessage::show("No ID passed into page");
     }
     $entityId = $_GET["id"];
     $entity = new Entity($con, $entityId);

@@ -5,6 +5,7 @@ require("includes\classes\PreviewProvider.php");
 require("includes\classes\Entity.php");
 require ("includes\classes\CategoryContainers.php");
 require ("includes\classes\EntityProvider.php");
+require ("includes\classes\ErrorMessage.php");
 
 $userLoggedIn = $_SESSION["userLoggedIn"];
 
