@@ -9,5 +9,5 @@
 
 
     $preview = new PreviewProvider($con, $userLoggedIn);
-    echo $preview->createVideoPreview(null);    
+    echo $preview->createVideoPreview($entity);    
 ?>
