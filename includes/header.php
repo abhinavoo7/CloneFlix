@@ -6,6 +6,9 @@ require("includes\classes\Entity.php");
 require ("includes\classes\CategoryContainers.php");
 require ("includes\classes\EntityProvider.php");
 require ("includes\classes\ErrorMessage.php");
+require ("includes\classes\SeasonProvider.php");
+require ("includes\classes\Season.php");
+require ("includes\classes\Video.php");
 
 $userLoggedIn = $_SESSION["userLoggedIn"];
 
