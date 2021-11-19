@@ -270,3 +270,7 @@
     a {
         text-decoration: none;
     }
+    
+    .watchContainer video {
+        width: 100%;
+    }
