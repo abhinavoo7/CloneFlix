@@ -18,8 +18,8 @@
     }
     
     h4 {
-        font-size: 1.25rem;
-        font-weight: 500;
+        font-size: 1rem;
+        font-weight: 600;
     }
     
     .category a {
@@ -207,6 +207,7 @@
         display: none;
         -ms-overflow-style: none;
         scrollbar-width: none;
+        overflow: hidden;
     }
     
     .previewCategories {
@@ -260,6 +261,10 @@
     .episodeContainer .videoInfo {
         max-height: 11rem;
         overflow-y: auto;
+    }
+    
+    .episodeContainer .videoInfo::-webkit-scrollbar {
+        display: none;
     }
     
     a {

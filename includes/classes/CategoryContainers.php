@@ -15,17 +15,32 @@ class CategoryContainers {
         $html = "<div class='previewCategories'>";
 
         while($row = $query->fetch(PDO::FETCH_ASSOC)) {
-            $html .= $this->getCategoryHtml($row, null, true, true);
+            $html .= $this->getCategoryHtml($row, null, true, true, 0);
         }
 
         return $html . "</div>";
     }
 
-    private function getCategoryHtml($sqlData, $title, $tvShows, $movies) {
+    // You might also like
+    public function showCategory($categoryId, $title=null, $mightLike){
+        $query = $this->con->prepare("SELECT * FROM categories where id=:id");
+        $query->bindValue(":id", $categoryId);
+        $query->execute();
+
+        $html = "<div class='previewCategories'>";
+
+        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            $html .= $this->getCategoryHtml($row, $title, true, true, $mightLike);
+        }
+
+        return $html . "</div>";
+    }
+
+    private function getCategoryHtml($sqlData, $title, $tvShows, $movies, $mightLike) {
         $categoryId = $sqlData["id"];
         $title = $title == null ? $sqlData["name"] : $title;
         if($tvShows && $movies) {
-            $entities = EntityProvider::getEntities($this->con, $categoryId, 30);
+            $entities = EntityProvider::getEntities($this->con, $categoryId, 30, $mightLike);
         }
         else if($tvShows) {
             // Get tv show entities

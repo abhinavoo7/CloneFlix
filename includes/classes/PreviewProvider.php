@@ -70,7 +70,7 @@
 
             // return new Entity($this->con, $row);
 
-            $entity = EntityProvider::getEntities($this->con, null, 1);
+            $entity = EntityProvider::getEntities($this->con, null, 1, 0);
             return $entity[0];
         }
 

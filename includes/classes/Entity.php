@@ -38,6 +38,10 @@
             return $this->sqlData["preview"];
         }
 
+        public function getCategoryId() {
+            return $this->sqlData["categoryId"];
+        }
+
         public function getSeasons(){
             $query = $this->con->prepare("Select * from videos where entityId=:id 
                                             and isMovie=0 Order By season, episode ASC");
