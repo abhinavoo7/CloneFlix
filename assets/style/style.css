@@ -17,6 +17,11 @@
         font-weight: 600;
     }
     
+    h4 {
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
+    
     .category a {
         text-decoration: none;
     }
@@ -190,7 +195,8 @@
         padding: 0.7rem 0;
     }
     
-    .entities {
+    .entities,
+    .videos {
         overflow-x: auto;
         overflow-y: hidden;
         white-space: nowrap;
@@ -199,6 +205,8 @@
     
     .scrollbars_none::-webkit-scrollbar {
         display: none;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
     
     .previewCategories {
@@ -212,4 +220,48 @@
         font-size: 1.5rem;
         width: 100%;
         text-align: center;
+    }
+    
+    .season {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem 2.5rem;
+    }
+    
+    .episodeContainer {
+        display: inline-flex;
+        justify-content: center;
+        margin-right: 0.7rem;
+    }
+    
+    .episodeContainer .contents {
+        display: flex;
+        flex-direction: column;
+        width: 14.4rem;
+    }
+    
+    .episodeContainer img {
+        width: 14.4rem;
+        height: 8.125rem;
+        object-fit: cover;
+        border-radius: 5px;
+        margin: 0.5rem 0;
+    }
+    
+    .episodeContainer .videoInfo,
+    h4,
+    .episodeContainer .videoInfo,
+    span {
+        color: #fff;
+        width: 100%;
+        white-space: normal;
+    }
+    
+    .episodeContainer .videoInfo {
+        max-height: 11rem;
+        overflow-y: auto;
+    }
+    
+    a {
+        text-decoration: none;
     }
