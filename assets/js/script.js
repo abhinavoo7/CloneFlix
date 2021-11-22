@@ -12,3 +12,7 @@ function previewEnded() {
     document.getElementById("hideButton").hidden = true;
     $('.previewVideo').toggle();
 }
+
+function goBack() {
+    window.history.back();
+}
