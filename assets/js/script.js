@@ -30,6 +30,41 @@ function startHideTimer() {
     })
 }
 
-function initVideo() {
+function initVideo(videoId, userLoggedIn) {
     startHideTimer();
+    console.log(videoId);
+    console.log(userLoggedIn);
+    updateProgressTimer(videoId, userLoggedIn);
+}
+
+function updateProgressTimer(videoId, username) {
+    addDuration(videoId, username);
+    var timer;
+    $("video").on("playing", function(event) {
+            window.clearInterval(timer);
+            timer = window.setInterval(function() {
+                updateProgress(videoId, username, event.target.currentTime);
+            }, 1500);
+        })
+        .on("ended", function() {
+            window.clearInterval(timer);
+        })
+}
+
+function addDuration(videoId, username) {
+    // AJAX request using JQuery
+    $.post("ajax/addDuration.php", { videoId: videoId, username: username }, function(data) {
+        if (data !== null && data !== "") {
+            alert(data);
+        }
+    });
+}
+
+function updateProgress(videoId, username, progress) {
+    // AJAX request using JQuery
+    $.post("ajax/updateDuration.php", { videoId: videoId, username: username, progress: progress }, function(data) {
+        if (data !== null && data !== "") {
+            alert(data);
+        }
+    });
 }
