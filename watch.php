@@ -1,5 +1,7 @@
 <?php
 
+$hideNav = true;
+
 require("includes\header.php");
 
 if (!isset($_GET["id"])) {
@@ -19,7 +21,9 @@ $video->incrementViews();
         <h1><?php echo $video->getTitle(); ?></h1>
     </div>
 
-
+    <div class="videoControls upNext">
+        <button><i class="fas fa-redo"></i></button>
+    </div>
 
     <video controls autoplay>
         <source src='<?php echo $video->getFilePath(); ?>' type="video/mp4">

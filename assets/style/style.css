@@ -299,3 +299,42 @@
         background-color: transparent;
         border: none;
     }
+    
+    .logo {
+        width: 55%;
+        margin-left: 1.5rem;
+        box-sizing: content-box;
+    }
+    
+    .topBar {
+        position: fixed;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.005);
+        height: 4rem;
+        color: #fff;
+        width: 100%;
+        min-width: 850px;
+        transition: background-color 200ms linear;
+    }
+    
+    .topBar.scrolled {
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: background-color 200ms linear;
+    }
+    
+    .topBar a {
+        color: #fff;
+        font-size: 1.35rem;
+        font-weight: 500;
+    }
+    
+    .rightItems {
+        text-align: right;
+        flex: 1;
+        padding-right: 2.5rem;
+    }
+    
+    .rightItems i {
+        color: #fff;
+        margin: 0 1.5rem;
+    }

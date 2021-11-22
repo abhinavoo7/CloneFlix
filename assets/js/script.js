@@ -1,3 +1,8 @@
+$(document).scroll(function() {
+    var isScrolled = $(this).scrollTop() > $(".topBar").height();
+    $(".topBar").toggleClass("scrolled", isScrolled);
+})
+
 function volumeToggle(button) {
     var muted = $(".previewVideo").prop("muted");
     $(".previewVideo").prop("muted", !muted);
@@ -30,11 +35,12 @@ function startHideTimer() {
     })
 }
 
-function initVideo(videoId, userLoggedIn) {
+function initVideo(videoId, username) {
     startHideTimer();
+    setStartTime(videoId, username);
     console.log(videoId);
-    console.log(userLoggedIn);
-    updateProgressTimer(videoId, userLoggedIn);
+    console.log(username);
+    updateProgressTimer(videoId, username);
 }
 
 function updateProgressTimer(videoId, username) {
@@ -44,9 +50,10 @@ function updateProgressTimer(videoId, username) {
             window.clearInterval(timer);
             timer = window.setInterval(function() {
                 updateProgress(videoId, username, event.target.currentTime);
-            }, 1500);
+            }, 2500);
         })
         .on("ended", function() {
+            setFinished(videoId, username);
             window.clearInterval(timer);
         })
 }
@@ -66,5 +73,28 @@ function updateProgress(videoId, username, progress) {
         if (data !== null && data !== "") {
             alert(data);
         }
+    });
+}
+
+function setFinished(videoId, username) {
+    // AJAX request using JQuery
+    $.post("ajax/setFinish.php", { videoId: videoId, username: username }, function(data) {
+        if (data !== null && data !== "") {
+            alert(data);
+        }
+    });
+}
+
+function setStartTime(videoId, username) {
+    // AJAX request using JQuery
+    $.post("ajax/getProgress.php", { videoId: videoId, username: username }, function(data) {
+        if (isNaN(data)) {
+            alert(data);
+            return;
+        }
+        $("video").on("canplay", function() {
+            this.currentTime = data;
+            $("video").off("canplay");
+        })
     });
 }
