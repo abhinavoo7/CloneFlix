@@ -83,6 +83,8 @@ function setFinished(videoId, username) {
             alert(data);
         }
     });
+    var x = document.getElementsByClassName("upNext");
+    x[0].removeAttribute("hidden");
 }
 
 function setStartTime(videoId, username) {
@@ -97,4 +99,14 @@ function setStartTime(videoId, username) {
             $("video").off("canplay");
         })
     });
+}
+
+function restartVideo() {
+    $("video")[0].currentTime = 0;
+    $("video")[0].play();
+    $(".upNext").fadeOut();
+}
+
+function watchVideo(videoId) {
+    window.location.href = "watch.php?id=" + videoId;
 }

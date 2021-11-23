@@ -338,3 +338,23 @@
         color: #fff;
         margin: 0 1.5rem;
     }
+    
+    .watchNav {
+        z-index: 2;
+    }
+    
+    .upNext {
+        height: 100%;
+        justify-content: center;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .upNextContainer h2,
+    h3 {
+        color: #fff;
+    }
+    
+    .upNextContainer button {
+        padding: 0;
+    }
