@@ -12,6 +12,9 @@ $entityId = $_GET["id"];
 
 $video = new Video($con, $entityId);
 $video->incrementViews();
+
+$upNextVideo = VideoProvider::getUpNext($con, $video);
+
 ?>
 
 <div class="watchContainer">
@@ -23,7 +26,14 @@ $video->incrementViews();
 
     <div class="videoControls upNext">
         <button><i class="fas fa-redo"></i></button>
+
+        <div class="upNextContainer">
+            <h2>Up next:</h2>
+            <h3><?php echo $upNextVideo->getTitle(); ?></h3>
+        </div>
     </div>
+
+
 
     <video controls autoplay>
         <source src='<?php echo $video->getFilePath(); ?>' type="video/mp4">

@@ -9,6 +9,7 @@ require("includes\classes\ErrorMessage.php");
 require("includes\classes\SeasonProvider.php");
 require("includes\classes\Season.php");
 require("includes\classes\Video.php");
+require("includes\classes\VideoProvider.php");
 
 $userLoggedIn = $_SESSION["userLoggedIn"];
 

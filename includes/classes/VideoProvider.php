@@ -1,27 +1,29 @@
 <?php
+class VideoProvider {
+    public static function getUpNext($con, $currentVideo) {
+        $query = $con->prepare("SELECT * FROM videos
+                            WHERE entityId=:entityId AND id != :videoId
+                            AND (
+                                (season = :season AND episode > :episode) OR season > :season
+                            )
+                            ORDER BY season, episode ASC LIMIT 1");
+        $query->bindValue(":entityId", $currentVideo->getEntityId());
+        $query->bindValue(":season", $currentVideo->getSeasonNumber());
+        $query->bindValue(":episode", $currentVideo->getEpisodeNumber());
+        $query->bindValue(":videoId", $currentVideo->getId());
+        
+        $query->execute();
 
-    class VideoProvider{
-
-        public static function getUptNext($con, $currentVideo){
-            $query = $con->prepare("Select * from videos where entityId = :entityId
-                                     videoId!=:videoId And (
-                                         (season = :season And episode > :episode) OR season > :season
-                                     ) Order By season, episode Asc Limit 1");
-            $query->bindData(":entityId", $currentVideo->getEntityId());
-            $query->bindData(":videoId", $currentVideo->getId());
-            $query->bindData(":season", $currentVideo->getSeasonNumber());
-            $query->bindData(":episode", $currentVideo->getEpisodeNumber());
+        if($query->rowCount() == 0) {
+            $query = $con->prepare("SELECT * FROM videos
+                                    WHERE season <=1 AND episode <= 1
+                                    AND id != :videoId
+                                    ORDER BY views DESC LIMIT 1");
+            $query->bindValue(":videoId", $currentVideo->getId());
             $query->execute();
-            if($query->rowCount() == 0){
-                $query = $con->prepare("Select * from video where season<=1 and episode<=1
-                                        And id!=:videoId Order By views Desc Limit 1");
-                $query->bindData(":videoId", $currentVideo->getId());
-                $query->execute();
-            }
-
-            $row = $query->fetch(PDO::FETCH_ASSOC);
-            return new Video($con, $row);
         }
-    }
 
-?>
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return new Video($con, $row);
+    }
+}

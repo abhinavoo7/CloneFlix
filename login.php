@@ -53,7 +53,7 @@
         <div class="column">
 
             <div class="header">
-                <img src="assets/images/Logo_adobespark.png" title="Logo" alt="Site logo" />
+                <img src="assets/images/Logo.png" title="Logo" alt="Site logo" />
                 <h3>Sign In</h3>
                 <span>to continue to CloneFlix</span>
             </div>
