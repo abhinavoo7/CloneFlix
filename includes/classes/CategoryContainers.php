@@ -20,6 +20,33 @@ class CategoryContainers {
 
         return $html . "</div>";
     }
+    public function showTVShowCategories() {
+        $query = $this->con->prepare("SELECT * FROM categories");
+        $query->execute();
+
+        $html = "<div class='previewCategories'>
+                    <h1>TV Shows</h1>";
+
+        while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            $html .= $this->getCategoryHtml($row, null, true, false, 0);
+        }
+
+        return $html . "</div>";
+    }
+    
+    public function showMovieCategories() {
+        $query = $this->con->prepare("SELECT * FROM categories");
+        $query->execute();
+
+        $html = "<div class='previewCategories'>
+                    <h1>Movies</h1>";
+
+        while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            $html .= $this->getCategoryHtml($row, null, false, true, 0);
+        }
+
+        return $html . "</div>";
+    }
 
     // You might also like
     public function showCategory($categoryId, $title=null, $mightLike){
@@ -44,9 +71,11 @@ class CategoryContainers {
         }
         else if($tvShows) {
             // Get tv show entities
+            $entities = EntityProvider::getTVShowEntities($this->con, $categoryId, 30);
         }
         else {
             // Get movie entities
+            $entities = EntityProvider::getMoviesEntities($this->con, $categoryId, 30);
         }
         if(sizeof($entities) == 0) {
             return;
@@ -57,12 +86,12 @@ class CategoryContainers {
             $entitiesHtml .= $previewProvider->createEntityPreviewSquare($entity);
         }
         return "<div class='category'>
-                    <a href='category.php'?id='$categoryId'>
+                    <a href='category.php?id=$categoryId'>
                         <h3>$title</h3>
                     </a>
 
-                    <div class='entities scrollbars_none'>
-                        $entitiesHtml   
+                    <div class='entities'>
+                        $entitiesHtml
                     </div>
                 </div>";
     }

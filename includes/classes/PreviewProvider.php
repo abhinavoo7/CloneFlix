@@ -9,6 +9,36 @@
             $this->username = $username;
         }
 
+        public function createCategoryPreviewVideo($categoryId){
+            $entitiesArray = EntityProvider::getEntities($this->con, $categoryId, 1, 0);
+
+            if(sizeof($entitiesArray) == 0){
+                ErrorMessage::show("No categories to display");
+            }
+
+            return $this->createVideoPreview($entitiesArray[0]);
+        }
+        
+        public function createTVShowPreviewVideo(){
+            $entitiesArray = EntityProvider::getTVShowEntities($this->con, null, 1);
+
+            if(sizeof($entitiesArray) == 0){
+                ErrorMessage::show("No TV shows to display");
+            }
+
+            return $this->createVideoPreview($entitiesArray[0]);
+        }
+        
+        public function createMoviesPreviewVideo(){
+            $entitiesArray = EntityProvider::getMoviesEntities($this->con, null, 1);
+
+            if(sizeof($entitiesArray) == 0){
+                ErrorMessage::show("No Movies to display");
+            }
+
+            return $this->createVideoPreview($entitiesArray[0]);
+        }
+
         public function createVideoPreview($entity){
             
             if($entity == null){

@@ -313,7 +313,7 @@
         height: 4rem;
         color: #fff;
         width: 100%;
-        min-width: 850px;
+        min-width: 550px;
         transition: background-color 200ms linear;
     }
     
@@ -357,4 +357,10 @@
     
     .upNextContainer button {
         padding: 0;
+    }
+    
+    .previewCategories h1 {
+        color: #fff;
+        font-weight: 600;
+        margin-top: 1.5rem;
     }
