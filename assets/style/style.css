@@ -211,7 +211,7 @@
     }
     
     .previewCategories {
-        padding: 0 2.5rem;
+        padding: 0 1.5rem;
     }
     
     .errorBanner {
@@ -367,4 +367,15 @@
         color: #fff;
         font-weight: 600;
         margin-top: 1.5rem;
+    }
+    
+    .textboxContainer {
+        padding: 10% 30%;
+    }
+    
+    input.searchInput {
+        background-color: transparent !important;
+        border: solid 1px #fff !important;
+        color: #fff !important;
+        font-size: 1.25rem !important;
     }

@@ -90,7 +90,7 @@ class CategoryContainers {
                         <h3>$title</h3>
                     </a>
 
-                    <div class='entities'>
+                    <div class='entities scrollbars_none'>
                         $entitiesHtml
                     </div>
                 </div>";
