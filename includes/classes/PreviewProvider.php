@@ -49,10 +49,11 @@
             $name = $entity->getName();
             $thumbnail = $entity->getThumbnail();
             $preview = $entity->getPreview();
-            
-                                // add subtitle 
-            
+                                   
             $videoId = VideoProvider::getEntityVideoForUser($this->con, $id, $this->username);
+            $video = new Video($this->con, $videoId);
+            $seasonEpisode = $video->getSeasonAndEpisode();
+            $subHeading = $video->isMovie() ? "" : "<h4>$seasonEpisode</h4>";
             
             return "<div class='previewContainer'>
                         <img src='$thumbnail' class='previewImage' hidden>
@@ -64,7 +65,10 @@
                         <div class='previewOverlay'>
                             
                             <div class='mainDetails'>
-                                <h3 style='color:white;'>$name</h3>   
+                                <h3 style='color:white;'>$name</h3>
+                                <div class='subHeading'>
+                                    $subHeading 
+                                </div>  
                                 <div class='buttons'>
                                     <button onClick='watchVideo($videoId);' class='btn btn-outline-light btn-sm'>
                                         <i class='fas fa-play'></i> Play
