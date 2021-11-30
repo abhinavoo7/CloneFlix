@@ -10,6 +10,7 @@ require("includes\classes\SeasonProvider.php");
 require("includes\classes\Season.php");
 require("includes\classes\Video.php");
 require("includes\classes\VideoProvider.php");
+require("includes\classes\User.php");
 
 $userLoggedIn = $_SESSION["userLoggedIn"];
 

@@ -379,3 +379,54 @@
         color: #fff !important;
         font-size: 1.25rem !important;
     }
+    
+    .settingsContainer {
+        padding-top: 8%;
+        background-color: transparent;
+        width: 90%;
+        margin-left: 1.5rem;
+        margin-right: auto;
+    }
+    
+    .settingsContainer h2 {
+        font-weight: 600;
+        color: white;
+    }
+    /* .settingsContainer .formSection {
+        border-bottom: 2px solid #fff;
+        margin: 1.5rem 0;
+        line-height: 2;
+    }
+    
+    .settingsContainer .formSection ::after {
+        border-bottom: 2px solid #fff;
+        margin: 1.5rem 0;
+        line-height: 2;
+    } */
+    
+    hr {
+        width: 100%;
+        border: none;
+        color: #fff;
+        text-align: center;
+        margin-top: 1.75rem;
+        margin-bottom: 0.25rem;
+        height: 0.05rem !important;
+        background-color: #fff;
+        opacity: 1 !important;
+    }
+    
+    .title-image {
+        margin-top: 14%;
+        width: 43%;
+        transform: rotate(12deg);
+        position: absolute;
+    }
+    
+    .alertSuccess {
+        color: green;
+    }
+    
+    .alertError {
+        color: red;
+    }
